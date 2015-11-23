@@ -34,7 +34,7 @@ class ODBCDriverConnection extends Connection
 	 */
 	protected function getDefaultSchemaGrammar()
 	{
-		return $this->withTablePrefix(new Schema\Grammars\Grammar);
+		return $this->withTablePrefix(new \Illuminate\Database\Schema\Grammars\SqlServerGrammar);
 	}
 
 	protected function getGrammarConfig()
