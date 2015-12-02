@@ -1,5 +1,6 @@
 <?php namespace Ccovey\ODBCDriver;
 
+use Illuminate\Database\Query\Builder;
 use Illuminate\Database\Query\Processors\Processor;
 
 /**
@@ -11,10 +12,10 @@ class ODBCDriverProcessor extends Processor {
     /**
      * Process an  "insert get ID" query.
      *
-     * @param Builder|\Illuminate\Database\Query\Builder $query
-     * @param  string $sql
-     * @param  array $values
-     * @param  string $sequence
+     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  string  $sql
+     * @param  array   $values
+     * @param  string  $sequence
      * @return int
      */
     public function processInsertGetId(Builder $query, $sql, $values, $sequence = null)
