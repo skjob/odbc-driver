@@ -2,8 +2,11 @@
 
 use Illuminate\Database\Connection;
 use Illuminate\Database\Query\Grammars\Grammar;
-use Illuminate\Database\Schema\Grammars\Grammar as SchemaGrammar;
 
+/**
+ * Class ODBCDriverConnection
+ * @package Ccovey\ODBCDriver
+ */
 class ODBCDriverConnection extends Connection
 {
 	/**
@@ -37,6 +40,9 @@ class ODBCDriverConnection extends Connection
 		return $this->withTablePrefix(new \Illuminate\Database\Schema\Grammars\SqlServerGrammar);
 	}
 
+	/**
+	 * @return bool|mixed
+     */
 	protected function getGrammarConfig()
 	{
 		if ($this->getConfig('grammar')) {
@@ -45,4 +51,13 @@ class ODBCDriverConnection extends Connection
 
 		return false;
 	}
+
+	/**
+	 * @return ODBCDriverProcessor
+     */
+	protected function getDefaultPostProcessor()
+	{
+		return new ODBCDriverProcessor();
+	}
+	
 }
