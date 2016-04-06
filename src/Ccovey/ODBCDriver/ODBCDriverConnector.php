@@ -21,7 +21,7 @@ class ODBCDriverConnector extends Connector implements ConnectorInterface
     protected function getDsn(array $config) {
         extract($config);
 
-        $dsn = "odbc:{$dsn}; Server={$host}; Uid={$username}; Pwd={$password}; Database={$database}";
+        $dsn = "odbc:{$dsn}; Uid={$username}; Pwd={$password}; Database={$database}";
 
         return $dsn;
     }
